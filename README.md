@@ -1,11 +1,14 @@
-# LABORATORIO 1 SEÑALES
+# LABORATORIO 1 PDS
 
-## Descripcion
- En este laboratorio buscamos evaluar el uso de las SEÑALES
-## Estadistica
+## Analisis estadistico de la señal
+ En el presente informe se muestra el código cuyo objetivo es identificar los estadísticos que describen una señal biomédica, obtenerlos a partir de algoritmos de programación y mostrarlos.
+### Procesamiento de la señal 
+Se eligió la  señal de PhysioNet.El informe que se escogió  es un estudio de la Universidad tecnolólogica  de Brno, este trata de un  ECG en donde tomaron registros  con un enfoque particular por la posición de la onda P creando 3 clasificaciones en diferentes bases de datos dependiendo la patología diagnosticada, encontrando  los cambios de ondas P.
 
 
-![Signal_origin](Images/Signal_origin.png)
+![alt](Images/Signal_origin.png)
+
+ECG: En la señal se evidencia el registro del potencial de acción durante el ciclo cardiaco. En esta señal se enfatisa en el trazado de la onda P por la señal, esta nos muestra la despolarización de las auriculas en el corazón.
 
 ## Codigo
 
@@ -50,6 +53,8 @@ Ahora bien vamos a graficar esto se hara con la libreria matplotlib.pyplo y lo l
 
 ![Signal_origin](Images/Signal_origin.png)
 
+Señal biomedica: en la investigación hecha por la universidad tecnologica de Born  extraida  de PhysioNet de un ECG donde tomaron registro de 2 derivaciones en 2 minutos con varios tipos de patologías con ondas P anotadas. Por otra parte cada registro que hicierontambién contiene anotaciones de posiciones y tipos de complejos QRS (de bases de datos originales). La señal exrtraida tiene un tipo de patologia de bloqueo auriculoventricular de primer grado.
+
 ### Grafico del histograma
 
 Luego de esto se va a realizar el Histograma de igual manera con librerias, la imagen sera de 8X4, con respecto a los datos de la señal con un bin o recuadro 50 color naranja y contorno negro, en x va a ir como amplitud de la señal, en y ira frecuencia normalizada, el titulo sera histograma de la señal por ultimo se cargara de la siguiente manera:
@@ -64,7 +69,11 @@ Luego de esto se va a realizar el Histograma de igual manera con librerias, la i
 
 ![History_signal](Images/History_signal.png)
 
-### Valores estadisticos 
+Histograma: EL histograma es una representación gráfica que muestra la distribución de los valores de voltaje en función del tiempo. Cada barra del histograma representa la frecuencia de los valores de voltaje en función del tiempo.
+Lo que se puede evidenciar en este histograma es que es un corazón con ritmo cardiaco normal ya que  la mayor densidad de valores está entre - 0.50mv y -0.25mv. En el cual teoricamente es la fase de despolarización de la celula cardiaca.
+
+
+## Valores estadisticos 
 
 #### Valores estadisticos sin librerias
 
@@ -149,7 +158,10 @@ Ahora se graficaran los datos donde va a tener la imagen un 8X4 se va a avluar e
 
 ![probability_signal](Images/probability_signal.png)
 
+Función de probabilidad: La función de probabilidad que podemos evidenciar de nuestro histograma es de tipo sesgado hacia la izquierda. Esto quiere decir que la distribución de los valores de voltaje en la señal ECG se inclina más a los valores de voltaje bajos que a los altos. Esto fisiologicamente quiere decir que tenemos actividad electrica en el corazón anormal y puede tratarse de patologías como arritmias o bloqueos cardiacos.
+
 ### GENERACION DE RUIDOS
+La generación de ruido se puede realizar por medio de diversas librerás y funciones aquí explicaremos algunos ruidos que se le puede agregar a la señal.
 
 ### Ruido Gaussiano
 En primer lugar el ruido gauss va a ser lo mismo que los datos random osea datos sin snetido alguno generados aleatoriamente de 0 a 0.1 con un rango de datos de la señal esto para poder contaminarla ya luego de esto la señal de gauss sera igual a la señal original mas ruido de la señal ya calculada con un for del rango de la cantidad de datos
@@ -295,7 +307,16 @@ Tendremos otro sub cuadro 4X1 pero en la posicion 4 donde ira la señal con ruid
 
 ![comparate_signals](Images/comparate_signals.png)
 
-## Requerimientos
+### SRN
+SRN no está hablando de la relación entre la señal y el ruido (Signal-to-Noise Ratio). TRata de una medida que se usa principalmente para cuantificar cuánta señal buena o señal de interés está presente en comparación con el nivel de ruido no deseado en nuestra señal extraida. Es decir SNR nos indica la calidad de la señal en relación con la interferencia o distorsión que pueda haber en la señal que estemos recolectando. Matematicamente la relación entre señal-ruido es:
+
+       SRN= 10* log(potencia de la señal/potencia del ruido)
+
+Esta relación se suele medir en desibelios (db).
+
+
+
+### Requisitos
 
 - Python 3.11
 - Wfdb
@@ -305,7 +326,12 @@ Tendremos otro sub cuadro 4X1 pero en la posicion 4 donde ira la señal con ruid
 - scipy.stats
 
 ## Bibliografia
+- Electrocardiograma de J. L. Rojo-Álvarez, Revista Española de Cardiología (2017).
+- Análisis de señales de ECG" A. M. Hernández (2015).
+- Histogramas de ECG, una herramienta para la detección de arritmias" de J. M. Martínez, Revista de Cardiología de México (2013).
+
+
 
 ## Contacto
-- **Jose Porras**
+- **Jose Daniel Porras** est.jose.dporras@unimilitar.edu.co
 - **Jhonathan David Guevara Ramirez** est.jhonathan.guev@unimilitar.edu.co 
